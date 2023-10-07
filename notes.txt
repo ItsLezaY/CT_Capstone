@@ -1,0 +1,51 @@
+FEATURES
+
+SIGNUP USER
+
+1) Register to use the app
+   - Email/password 
+   - Google Sign in 
+   - Username
+
+USER LOGIN
+
+1) Have to login in order to pull up your -specific- tracker/todo list
+     - otherwise it will be a null timer on all the things tracked
+     - defauly background image until signed in
+
+
+
+PROFILE CHANGE
+
+1) Allow user to set Background Image of the div? (widget style)
+
+2) Set character name and Server Name
+
+3) Maybe allow users to set different characters with different profiles so that it trackers multiple characters
+
+4) When character logs in, it automatically shows the different characters they are tracking
+
+
+
+TRACKS FOUR EVENTS
+
+DATE/TIME based on user's character.
+
+1) Dynamis --     (every 72 hours from the time you entered zone)
+
+
+2) Limbus --      (every 72 hours from the time you enter zone) 
+
+
+3) Assault Tags--      Tags (tag recharges every 24 hours from picking up first tag of the day) 
+
+
+4) Salvage --      (once per day-- JP midnight reset -- (GMT+9 hours))
+
+
+
+USERs should be able to update tasks as necessary
+
+
+
+

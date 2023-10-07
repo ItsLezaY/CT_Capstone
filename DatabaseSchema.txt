@@ -1,0 +1,49 @@
+Database schema using SQLite as an example:
+
+Table: Users
+
+    user_id (Primary Key, Integer)
+    username (String)
+    password_hash (String)
+
+Table: UserTasks
+
+    task_id (Primary Key, Integer)
+    user_id (Foreign Key, Integer)
+    task_name (String)
+    last_completed_at (DateTime)
+    next_available_at (DateTime)
+
+Table: TaskTypes
+
+    type_id (Primary Key, Integer)
+    type_name (String)
+
+Table: UserTaskTypes
+
+    id (Primary Key, Integer)
+    user_id (Foreign Key, Integer)
+    type_id (Foreign Key, Integer)
+    tags_remaining (Integer)
+
+Table: TaskHistory
+
+    history_id (Primary Key, Integer)
+    task_id (Foreign Key, Integer)
+    completed_at (DateTime)
+
+In this schema:
+
+    1) The Users table stores user information, including their ID, username, and password hash.
+    
+    2) The UserTasks table keeps track of the user's tasks, including the name of the task, the time it was last completed, and the time it will be available next.
+    
+    3) The TaskTypes table lists different types of tasks (Dynamis, Limbus, Assault, Salvage).
+    
+    4) The UserTaskTypes table associates users with task types, keeping track of how many tags are remaining for each type.
+    
+    5) The TaskHistory table logs when tasks were completed.
+
+This schema allows you to associate users with their tasks and track the relevant information for each task type. It also provides a way to log task completion history.
+
+Remember to adjust the data types and constraints based on the specific database management system you're using (SQLite, PostgreSQL, etc.). Also, make sure to handle password storage securely (e.g., using bcrypt).
