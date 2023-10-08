@@ -64,7 +64,7 @@ export const TrackerContainer = styled('div')({
   left: '50%',
   transform: 'translate(-50%, -50%)',
   marginTop: '1.9rem',
-  marginLeft: '-.9rem',
+  marginLeft: 'rem',
   padding: '2rem',
   borderRadius: '15px',
   boxShadow: '-10px 10px 15px rgba(0,0,0, .6)',
@@ -146,6 +146,9 @@ useEffect(() => {
   }
 }, [lockoutTime]);
 
+console.log(`Event: ${event}, Lockout Time: ${lockoutTime}, Remaining Time: ${remainingTime}`);
+
+
 
     const hours = String(Math.floor(remainingTime / (1000 * 60 * 60))).padStart(2, '0');
     const minutes = String(Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60))).padStart(2, '0');
@@ -180,7 +183,9 @@ export const Dashboard: React.FC = () => {
             const snapshot = await get(lockoutRef);
             if (snapshot.exists()) {
                 const lockoutTimes = snapshot.val();
+                console.log("Lockout Times:", lockoutTimes);
                 const lockoutEndTimes: LockoutTimes = {};
+                console.log("Lockout Times:", lockoutEndTimes);
               
                 Object.entries(lockoutTimes).forEach(([event, time]) => {
                   lockoutEndTimes[event] = time as number;

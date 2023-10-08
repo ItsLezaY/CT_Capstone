@@ -75,15 +75,24 @@ export const Profile = () => {
     const [message, setMessage] = useState<string>();
     const [messageType, setMessageType] = useState<MessageType>();
   
-    const toUtc = (date: Date) => new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes()));
-  
+    const toUtc = (date: Date) => {
+      const utcYear = date.getUTCFullYear();
+      const utcMonth = date.getUTCMonth();
+      const utcDate = date.getUTCDate();
+      const utcHours = date.getUTCHours();
+      const utcMinutes = date.getUTCMinutes();
+    
+      return new Date(Date.UTC(utcYear, utcMonth, utcDate, utcHours, utcMinutes));
+    };
+    
     const handleSave = async () => {
       const updateData = {
-        dynamis: toUtc(dynamisTime).getTime(),
-        limbus: toUtc(limbusTime).getTime(),
-        salvage: toUtc(salvageTime).getTime(),
-        assault: toUtc(assaultTime).getTime(),
+        dynamis: dynamisTime.getTime(),
+        limbus: limbusTime.getTime(),
+        salvage: salvageTime.getTime(),
+        assault: assaultTime.getTime(),
       };
+ 
   
       const userId = localStorage.getItem('token');
       const timersRef = ref(db, `timers/${userId}/`);

@@ -9,7 +9,7 @@ export const TimeComponent: React.FC = () => {
 
     useEffect(() => {
         const getCurrentTime = () => {
-            axios.get('https://cors-anywhere.herokuapp.com/http://worldtimeapi.org/api/timezone/Asia/Tokyo')
+            axios.get('http://worldtimeapi.org/api/timezone/Asia/Tokyo')
             .then(response => {
                 const rawTime = new Date(response.data.utc_datetime);
                 setCurrentTime(rawTime.toLocaleString('en-US', { 
@@ -39,7 +39,7 @@ export const TimeComponent: React.FC = () => {
 
     return (
         <div>
-            <p style={{ color: 'white', fontFamily: 'monospace', fontSize: '15px', marginBottom: '-3rem' }}>{currentTime} JST</p>
+            <p style={{ color: 'white', fontFamily: 'monospace', fontSize: '15px', marginBottom: '-3rem' }}>{currentTime}</p>
         </div>
     );
 };
